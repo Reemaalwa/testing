@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch and insert the team section dynamically
-    fetch("/html/team.html")
+    fetch("team.html")
         .then(response => response.text())
         .then(html => {
             document.getElementById("team-placeholder").innerHTML = html;
