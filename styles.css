@@ -1,0 +1,958 @@
+/* Remove Default Margin & Padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure the Body & HTML Take Full Height */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Remove underline from all links */
+a {
+    text-decoration: none;
+}
+
+/* ========================= */
+/* Navigation Bar (Fixed & Centered) */
+/* ========================= */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: white;
+    border-radius: 40px;
+    max-width: 900px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    align-items: center;
+}
+
+/* Navigation Buttons */
+.nav-item {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    padding: 0px 20px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+/* Active Page Styling (but EXCLUDES the logo) */
+.nav-item.active {
+    background: rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+/* Logo Styled as a Navigation Button (BUT NEVER ACTIVE) */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure the Logo is NEVER Active */
+.nav-logo a {
+    border-radius: 25px;
+    transition: 0.3s;
+    pointer-events: auto; /* Ensure it’s clickable */
+}
+
+/* Logo Image */
+.nav-logo img {
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Ensure Logo is Never Highlighted as Active */
+.nav-logo a.active {
+    background: none !important;
+}
+
+/* Profile Icon */
+.profile-icon img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+
+/* ========================= */
+/* Hero Section */
+/* ========================= */
+/* Hero Section - Background & Layout */
+#hero {
+    position: relative;
+    height: 600px;
+    background: url('/images/background.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    justify-content: flex-end; /* Moves text to the bottom */
+    text-align: left; /* Ensure text alignment to the left */
+    color: white;
+    padding: 50px;
+    padding-left: 80px; /* Push text away from the edge */
+    padding-bottom: 50px; /* Adjust distance from bottom */
+}
+
+
+/* Font Styling */
+#hero h2 {
+    font-size: 58px; /* Match large bold font */
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    margin-bottom: 10px;
+}
+
+#hero p {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* About Us Button */
+#about-btn {
+    background-color: red;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    align-items: center; /* Centers text and image */
+    gap: 10px; /* Adds space between text and logo */
+}
+
+/* Ensure Logo is the Same Height as Text */
+#about-btn img {
+    height: 18px; /* Adjust this value to match text size */
+    width: auto; /* Keeps image proportional */
+    vertical-align: middle; /* Aligns the image properly */
+}
+
+/* Button Hover Effect */
+#about-btn:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+}
+
+
+/* ========================= */
+/* Services Section */
+/* ========================= */
+#services {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Services Title */
+#services h2 {
+    font-size: 46px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+/* Services Grid - Two Equal Columns */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; /* Space between services */
+    column-gap: 20cap;
+    max-width: 1700px;
+    margin: auto;
+}
+
+/* Service Card */
+.service-card {
+    display: flex;
+    background: black;
+    color: white;
+    border-radius: 15px;
+    padding: 15px;
+    align-items: center;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Image */
+.service-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* Service Info */
+.service-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows flexible spacing */
+    text-align: left;
+    gap: 10px;
+    position: relative;
+    padding-left: 3%;
+}
+
+/* Service Title (h3) & Price in the Same Line */
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensures it spans the full width */
+}
+
+/* Adjust Service Title (h3) */
+.service-header h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    flex-grow: 1; /* Pushes price to the right */
+}
+
+/* Adjust Price */
+.service-header .price {
+    font-size: 18px;
+    font-weight: light;
+    color: rgb(232, 227, 227);
+    white-space: nowrap; /* Prevents price from wrapping */
+    margin-left: 15px; /* Adds space between title and price */
+}
+
+/* Service Description */
+.service-info p {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+/* Move the Add Button to the Right */
+.service-info .add-btn {
+    align-self: flex-end; /* Aligns button to the right */
+}
+
+/* ADD Button */
+.add-btn {
+    background: red;
+    border: none;
+    color: white;
+    padding: 5px 15px; /* Adjust padding for better appearance */
+    border-radius: 55px;
+    cursor: pointer;
+    font-size: 14px;
+    width: auto; /* Ensure button fits only the text */
+    min-width: unset; /* Remove any inherited min-width */
+    text-align: center;
+    display: inline-block; /* Prevent full width */
+    white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+/* ADD Button Hover Effect */
+.add-btn:hover {
+    background-color: darkred;
+}
+
+/* Hover Effect for Service Card */
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+/* ========================= */
+/* Services pages */
+/* ========================= */
+
+/* Ensure the Service Details Section Fills the Screen Width ONLY on service-details page */
+.service-details-page #service-details {
+    width: 100%; /* Make it full width */
+    max-width: 100vw; /* Ensure it doesn't exceed viewport width */
+    margin: 0; /* Remove default margins */
+    padding-top: 7%; /* Add side padding for better spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Service Container - Align Left & Right */
+.service-details-page .service-container {
+    display: flex;
+    width: 100%; /* Take full width */
+    max-width: 1700px; /* Limit max width for readability */
+    max-height: 1700px;
+    margin: auto;
+    gap: 30px; /* Adds spacing between image and text */
+}
+
+/* Image Section */
+.service-details-page .service-image {
+    flex: 1; /* Allow the image to take equal space */
+    max-width: 50%; /* Prevents it from being too large */
+}
+
+.service-details-page .service-image img {
+    width: 90%; /* Ensures the image fills its container */
+    border-radius: 10px; 
+}
+
+/* Service Info Section */
+.service-details-page .service-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Ensure the Title and Price Are on the Same Line */
+.service-details-page .service-info h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 68px;
+    font-weight: lighter;
+    color: black;
+}
+
+.service-details-page .service-info p {
+    display: flex;
+    padding-top: 2%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28px;
+    font-weight: light;
+    color: rgb(55, 54, 54);
+}
+
+/* Price */
+.service-details-page .price {
+    font-size: 48px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Dropdown Styling */
+.service-details-page .date-dropdown,
+.service-details-page .time-dropdown,
+.service-details-page .technician-dropdown {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ffb8b8;
+    color: #ff0000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ADD Button - ONLY for service details page */
+.service-details-page .add-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.service-details-page .add-btn:hover {
+    background: darkred;
+}
+
+
+/* ========================= */
+/* Customer Reviews Section */
+/* ========================= */
+#reviews {
+    text-align: center;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* Reviews Heading */
+#reviews h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Review Carousel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Review Box */
+.review-box {
+    display: none; /* Hide all reviews except the active one */
+    background: #ffffff;
+    border: #333;
+    padding: 70px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(121, 107, 107, 0.1);
+    min-height: 120px;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Show the first review by default */
+.review-box.active {
+    display: block;
+}
+
+/* Stars */
+.stars {
+    font-size: 20px;
+    color: gold;
+}
+
+/* Reviewer Information */
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.reviewer img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+/* Review Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+#prev {
+    left: 0;
+    
+    transform: translateX(30%);
+}
+
+#next {
+    right: 0;
+    
+    transform: translateX(-30%);
+}
+
+.carousel-btn:hover {
+    background-color: red;
+}
+
+/* ========================= */
+/*  Meet the Team Section    */
+/* ========================= */
+/* Team Section */
+#team-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(110, 110, 110, 0.306); /* Change to your desired background */
+    color: white; /* Ensures text is readable on dark backgrounds */
+}
+
+#team-section h2{
+    text-align: center;
+    padding: 50px 20px;
+    font-size: 40pt;
+    color: black;
+    font-weight: light;
+}
+
+/* Carousel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Wrapper for 3 Members at a Time */
+.team-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Team Member Cards */
+.team-member {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Team Member Images */
+.team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Name & Role */
+.team-member h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+#prev {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+.carousel-btn:hover {
+    background-color: darkred;
+}
+
+/* ========================= */
+/* Mailing List Section */
+/* ========================= */
+#mailing-list {
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+#mailing-list h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#mailing-list p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Input & Button Wrapper */
+.mailing-list-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+}
+
+/* Input Field */
+#email {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+/* Subscribe Button */
+#subscribe-btn {
+    padding: 12px 20px;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+}
+
+#subscribe-btn:hover {
+    background: darkred;
+}
+
+/* Subscription Message */
+#subscription-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
+}
+
+/* Hidden class for message */
+.hidden {
+    display: none;
+}
+
+
+/* ========================= */
+/* Contact Page Styling */
+/* ========================= */
+#contact-section {
+    text-align: center;
+    padding: 50px 0;
+    width: 100%;
+}
+
+/* Contact Heading */
+#contact-section h2 {
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    text-align: left;
+    padding-left: 50px;
+}
+
+/* Contact Container - Full Width */
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1800px; /* Adjust as needed */
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Image - Ensures it Scales Properly */
+.contact-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-image img {
+    width: 100%;
+    max-width: 1700px;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* Labels */
+.contact-form label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    border-radius: 7px;
+}
+
+/* Form Inputs */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 7px;
+    font-size: 18px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 1px solid red;
+}
+
+/* Textarea */
+.contact-form textarea {
+    height: 140px;
+    padding: 15px;
+    resize: none;
+}
+
+/* Submit Button */
+#submit-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100%;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#submit-btn:hover {
+    background: darkred;
+    transform: scale(1.03);
+}
+
+/* Contact Form */
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+
+/* Ensure uniform input styles */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #000; /* Ensure all borders are black */
+    border-radius: 10px; /* Adjust for smooth rounding */
+    font-size: 18px;
+    outline: none;
+    box-shadow: none; /* Removes default inner shadows */
+    background: white; /* Ensure a consistent background */
+    appearance: none; /* Disables browser-specific styles */
+}
+
+/* Input Focus Effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 2px solid red; /* Ensure all focused inputs have the same red border */
+    box-shadow: none; /* Removes any default focus glow */
+}
+
+/* ========================= */
+/* Responsive Design (Full Width on Mobile) */
+/* ========================= */
+@media (max-width: 1024px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 0; /* Removes the rounded corners on smaller screens */
+    }
+
+    #contact-section h2 {
+        text-align: center;
+        padding-left: 0;
+        font-size: 40px;
+    }
+
+    .contact-image img {
+        max-width: 100%;
+    }
+
+    .contact-form {
+        padding: 20px;
+        width: 90%;
+    }
+}
+
+/* ========================= */
+/* Location Page Styling */
+/* ========================= */
+
+#location-section {
+    text-align: center;
+    padding: 50px 0;
+    width: 100%;
+}
+
+#location-section h2 {
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    text-align: left;
+    padding-left: 50px;
+}
+
+/* Location Container */
+.location-container {
+    display: flex;
+    align-items: stretch; /* Ensures equal height */
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Google Map Container */
+.map-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Makes sure it stretches full height */
+    overflow: hidden; /* Prevents any weird spacing */
+}
+
+.gmap_iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 450px; /* Ensures it doesn’t collapse */
+    border-radius: 20px;
+}
+
+/* Business Info Section */
+.business-info {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns elements properly */
+}
+
+/* Business Header */
+/* Business Header - Align Logo & Name */
+.business-header {
+    display: flex;
+    align-items: center; /* Ensures proper vertical alignment */
+    gap: 5px;
+    justify-content: flex-start;
+}
+
+/* Business Logo */
+.business-logo {
+    height: 40px;
+    width: auto; /* Keeps the aspect ratio */
+    display: inline-block;
+}
+
+/* Business Name */
+.business-header h2 {
+    font-size: 6px;
+    font-weight: bold;
+    margin: -10;
+    color: black;
+}
+
+
+/* Contact Card */
+.contact-card {
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Info Boxes (Hours & Address) */
+.info-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Headers Inside Boxes */
+.info-header {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    color: white;
+    margin-bottom: 3pt;
+}
+
+.hours-header {
+    background: red;
+}
+
+.address-header {
+    background: red;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .location-container {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 0;
+    }
+
+    #location-section h2 {
+        text-align: center;
+        padding-left: 0;
+        font-size: 40px;
+    }
+
+    .map-container {
+        height: 450px; /* Fixes height issue */
+    }
+
+    .gmap_iframe {
+        max-width: 100%;
+        height: 100%; /* Ensures full height */
+    }
+}

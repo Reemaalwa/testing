@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details - Glass Repair</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/script.js" defer></script>
+</head>
+<body class="service-details-page bg-gray-100">  
+
+    <!-- Navigation Bar -->
+    <div id="navbar-placeholder"></div>
+    <script src="/js/navbar.js"></script>
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="mt-20 max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <div class="service-container flex flex-col md:flex-row gap-6">
+            <!-- Left: Service Image -->
+            <div class="service-image flex-1">
+                <img src="/images/glass_repair.jpg" alt="Glass Repair" class="rounded-lg shadow-md">
+            </div>
+
+            <!-- Right: Service Info -->
+            <div class="service-info flex-1">
+                <h2 class="text-3xl font-semibold flex justify-between items-center">
+                    Glass Repair <span class="text-red-500 font-bold text-2xl">$90</span>
+                </h2>
+                <p class="text-gray-600 mt-2">
+                    Windshield crack repair or replacement. Repairing or replacing side and rear windows.
+                </p>
+
+                <!-- Date Selection -->
+                <div class="mt-4">
+                    <label for="date-select" class="block font-semibold">Select a Date:</label>
+                    <select id="date-select" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm">
+                        <option value="jun10">June 10, 2025</option>
+                        <option value="jun15">June 15, 2025</option>
+                        <option value="jun20">June 20, 2025</option>
+                    </select>
+                </div>
+
+                <!-- Time Selection -->
+                <div class="mt-4">
+                    <label for="time-select" class="block font-semibold">Select a Time:</label>
+                    <select id="time-select" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm">
+                        <option value="9:00am">9:00 AM</option>
+                        <option value="11:00am">11:00 AM</option>
+                        <option value="2:00pm">2:00 PM</option>
+                        <option value="4:00pm">4:00 PM</option>
+                    </select>
+                </div>
+
+                <!-- Technician Selection -->
+                <div class="mt-4">
+                    <label for="technician-select" class="block font-semibold">Choose your Technician:</label>
+                    <select id="technician-select" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm">
+                        <option>Mike Brown</option>
+                        <option>Carlos River</option>
+                        <option>Jessica Lee</option>
+                    </select>
+                </div>
+
+                <!-- Add Button -->
+                <button id="add-btn" class="mt-6 px-6 py-3 bg-red-500 text-white rounded-lg shadow-md w-full text-lg font-semibold">
+                    ADD
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pop-up Confirmation (Hidden by Default) -->
+    <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-gray-900 text-white p-6 rounded-lg max-w-lg w-full shadow-lg relative">
+            <div class="flex justify-center">
+                <div class="bg-red-500 rounded-full p-4">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-center mt-4">Appointment Confirmed!</h2>
+            <p class="text-center mt-2">You have scheduled an appointment with <strong id="tech-name">Tech Tony</strong></p>
+            <p class="text-center text-red-400 font-semibold mt-1" id="selected-time">09:40 AM - 01:00 PM</p>
+            <p class="text-center text-red-400 font-semibold" id="selected-date">Tuesday, June 10, 2025</p>
+            <p class="text-center text-gray-400 text-sm mt-2">A confirmation email has been sent to you@example.com</p>
+
+            <button id="close-popup" class="mt-4 px-6 py-3 bg-red-500 text-white rounded-lg shadow-md w-full text-lg font-semibold">
+                Make Another Booking
+            </button>
+        </div>
+    </div>
+
+    <!-- Load Customer Reviews -->
+    <div id="reviews-placeholder"></div>
+    <script src="/js/reviews.js"></script>
+
+    <!-- Load Mailing List -->
+    <div id="mailing-list-placeholder"></div>
+    <script src="/js/mailing-list.js"></script>
+
+    <!-- JavaScript for Pop-up Functionality -->
+    <script>
+        document.getElementById("add-btn").addEventListener("click", function() {
+            // Get selected values
+            let selectedDate = document.getElementById("date-select").options[document.getElementById("date-select").selectedIndex].text;
+            let selectedTime = document.getElementById("time-select").options[document.getElementById("time-select").selectedIndex].text;
+            let selectedTech = document.getElementById("technician-select").value;
+
+            // Update pop-up content
+            document.getElementById("selected-date").innerText = selectedDate;
+            document.getElementById("selected-time").innerText = selectedTime;
+            document.getElementById("tech-name").innerText = selectedTech;
+
+            // Show pop-up
+            document.getElementById("popup").classList.remove("hidden");
+        });
+
+        document.getElementById("close-popup").addEventListener("click", function() {
+            // Hide pop-up
+            document.getElementById("popup").classList.add("hidden");
+        });
+    </script>
+
+</body>
+</html>
