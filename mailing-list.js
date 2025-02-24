@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch and insert the mailing list HTML into the placeholder div
-    fetch("/html/mailing-list.html")
+    fetch("mailing-list.html")
         .then(response => response.text())
         .then(data => {
             // Insert the mailing list HTML into the placeholder
